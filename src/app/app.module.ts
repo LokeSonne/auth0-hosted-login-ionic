@@ -1,17 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, IonicPageModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { ShowLoaderPage } from '../pages/show-loader/show-loader';
 import { AuthenticationService } from '../providers/authentication-service/authentication-service';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    ShowLoaderPage
   ],
   imports: [
     BrowserModule,
@@ -20,7 +20,7 @@ import { AuthenticationService } from '../providers/authentication-service/authe
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    ShowLoaderPage
   ],
   providers: [
     StatusBar,
