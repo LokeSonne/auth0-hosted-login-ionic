@@ -1,9 +1,9 @@
 <ion-header>
   <ion-navbar>
-    <ion-title></ion-title>
+    <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-Home
+<button *ngIf="auth.isAuthenticated" block ion-button (click)="logout()">Log out</button>
 </ion-content>

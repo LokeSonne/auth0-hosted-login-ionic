@@ -1,25 +1,28 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { AuthenticationService } from '../../providers/authentication-service/authentication-service';
+import { Storage } from '@ionic/storage';
 
-/**
- * Generated class for the ShowLoaderPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthenticationService, public storage: Storage, public loadingCtrl: LoadingController) {
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ShowLoaderPage');
+  }
+
+  logout(){
+    this.auth.logout()
+      .then(() => {return this.auth.checkAuthentication()})
+      .then((result) => {console.log('Logged back in: ', result)})
+      .catch(error => {
+        console.log(error);
+      })
   }
 
 }
